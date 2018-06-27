@@ -1,0 +1,21 @@
+{
+  "name": "data-structure",
+  "version": "0.0.1",
+  "description": "Learning Data-Structrue",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "ChenPt",
+  "license": "MIT",
+  "dependencies": {
+    "eslint": "^5.0.1",
+    "parcel": "^1.9.3"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-jest": "^23.2.0",
+    "babel-preset-env": "^1.7.0",
+    "jest": "^23.2.0"
+  }
+}
