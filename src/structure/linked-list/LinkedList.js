@@ -7,7 +7,7 @@ export default class LinkedList {
   }
 
   /**
-   * @param {*} value 
+   * @param {*} value
    * @return {LinkedList}
    */
   append(value) {
@@ -29,9 +29,9 @@ export default class LinkedList {
     return this
   }
   /**
-   * 
+   *
    * @param {*} value
-   * @return {LinkedList} 
+   * @return {LinkedList}
    */
   delete(value) {
     let currentNode = this.head
@@ -42,7 +42,7 @@ export default class LinkedList {
       if (currentNode.value === value) {
         if (currentNode === this.head) {
           this.head = this.head.next
-        } 
+        }
         if (currentNode === this.tail) {
           this.tail = preNode
         }
@@ -50,7 +50,7 @@ export default class LinkedList {
         currentNode = null
         this.length--
 
-        return  deletedNode
+        return deletedNode
       }
       preNode = currentNode
       currentNode = currentNode.next
@@ -60,8 +60,8 @@ export default class LinkedList {
   }
 
   /**
-   * 
-   * @param {*} value 
+   *
+   * @param {*} value
    * @return {LinkedList}
    */
   prepend(value) {
@@ -89,8 +89,26 @@ export default class LinkedList {
     for (let i = 0; i < length; i++, currentNode = currentNode.next) {
       if (currentNode.value === value) {
         return currentNode
-      } 
+      }
     }
     return null
+  }
+
+  toArray() {
+    let nodes = []
+    let currentNode = this.head
+
+    while (currentNode) {
+      nodes.push(currentNode)
+      currentNode = currentNode.next
+    }
+
+    return nodes
+  }
+  /**
+   * @return {Array} 存储着每个节点value值的数组
+   */
+  toString() {
+    // this.toArray().map
   }
 }

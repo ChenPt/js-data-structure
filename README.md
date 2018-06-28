@@ -3,7 +3,7 @@
 用javaScript实现来巩固
 
 ## 0x02
-尝试用 parcel + jest 来做构建打包和测试
+用 parcel + jest 来做构建打包和测试
 ## 0x03
 
 ## TODOLIST
