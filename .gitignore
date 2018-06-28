@@ -3,4 +3,4 @@ node_modules
 dist
 .cache
 build
-
+yarn-error.log
