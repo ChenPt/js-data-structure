@@ -30,7 +30,7 @@ export default {
 
 </script>
 
-<style scoped>
+<style scoped type="text/css">
 .title {
   color: red;
 }

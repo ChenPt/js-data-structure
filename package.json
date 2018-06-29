@@ -23,7 +23,6 @@
     "eslint": "^5.0.1",
     "jest": "^23.2.0",
     "node-sass": "^4.9.0",
-    "parcel-bundler": "^1.9.3",
     "vue-hot-reload-api": "^2.3.0",
     "vue-router": "^3.0.1",
     "vue-template-compiler": "^2.5.16"
