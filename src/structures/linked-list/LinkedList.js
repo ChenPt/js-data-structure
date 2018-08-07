@@ -10,30 +10,27 @@ export default class LinkedList {
    * @param {*} value
    * @return {LinkedList}
    */
-  append(value) {
+  append (value) {
     let newNode = new LinkedListNode(value)
 
-    if (this.head) {
+    if (this.tail && this.head) {
+      this.tail.next = newNode
+      this.tail = newNode
+    } else {
       this.head = newNode
       this.tail = newNode
-      this.length++
-
-      return this
     }
 
-    // 将尾结点的next连接到新结点，更新尾结点
-    this.tail.next = newNode
-    this.tail = newNode
     this.length++
 
     return this
   }
   /**
-   *
+   * @method 删除某个结点
    * @param {*} value
    * @return {LinkedList}
    */
-  delete(value) {
+  delete (value) {
     let currentNode = this.head
     let preNode = null
     let deletedNode = null
@@ -45,6 +42,10 @@ export default class LinkedList {
         }
         if (currentNode === this.tail) {
           this.tail = preNode
+          preNode.next = null
+        }
+        if (preNode) {
+          preNode.next = currentNode.next
         }
         deletedNode = currentNode
         currentNode = null
@@ -52,6 +53,7 @@ export default class LinkedList {
 
         return deletedNode
       }
+
       preNode = currentNode
       currentNode = currentNode.next
     }
@@ -60,11 +62,11 @@ export default class LinkedList {
   }
 
   /**
-   *
+   * @method 在链表头插入新元素
    * @param {*} value
    * @return {LinkedList}
    */
-  prepend(value) {
+  prepend (value) {
     let newNode = new LinkedListNode(value)
 
     //链表为空
@@ -78,23 +80,25 @@ export default class LinkedList {
 
     newNode.next = this.head
     this.head = newNode
+    this.length++
 
     return this
   }
+  // 找寻某个结点
+  find (value) {
+    var currentNode = this.head
 
-  find(value) {
-    // TODO: 从head指向的结点开始找起，直到到达tail指向的结点
-    let length = this.length
-    let currentNode = this.head
-    for (let i = 0; i < length; i++, currentNode = currentNode.next) {
-      if (currentNode.value === value) {
-        return currentNode
-      }
+    while (currentNode.value !== value && currentNode) {
+      currentNode = currentNode.next
     }
-    return null
+
+    return currentNode
   }
 
-  toArray() {
+  /**
+   * @return {Array} 存储着每个节点value值的数组
+   */
+  toArray () {
     let nodes = []
     let currentNode = this.head
 
@@ -104,11 +108,5 @@ export default class LinkedList {
     }
 
     return nodes
-  }
-  /**
-   * @return {Array} 存储着每个节点value值的数组
-   */
-  toString() {
-    // this.toArray().map
   }
 }
